@@ -1,42 +1,65 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - WelCareForYou</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+
+	<link rel="stylesheet" href="~/Content/css/open-iconic-bootstrap.min.css">
+	<link rel="stylesheet" href="~/Content/css/animate.css">
+
+	<link rel="stylesheet" href="~/Content/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="~/Content/css/magnific-popup.css">
+
+	<link rel="stylesheet" href="~/Content/css/aos.css">
+
+	<link rel="stylesheet" href="~/Content/css/ionicons.min.css">
+
+	<link rel="stylesheet" href="~/Content/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="~/Content/css/jquery.timepicker.css">
+
+	<link rel="stylesheet" href="~/Content/css/flaticon.css">
+	<link rel="stylesheet" href="~/Content/css/icomoon.css">
+	<link rel="stylesheet" href="~/Content/css/style.css">
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target">
+		<div class="container">
+			<a class="navbar-brand">WelCareForYou</a>
+			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav nav ml-auto">
+					<li class="nav-item"><a href="~/Home/index" class="nav-link"><span>Home</span></a></li>
+					<li class="nav-item"><a href="~/Home/index" class="nav-link"><span>Contact Us</span></a></li>
+					<li class="nav-item"><a href="~/Home/Housing" class="nav-link"><span>Help with your Renting</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	
+	<div class="container body-content">
+		@RenderBody()
+		<hr />
+		<footer>
+			<p>&copy; @DateTime.Now.Year - </p>
+		</footer>
+	</div>
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
 </body>
 </html>

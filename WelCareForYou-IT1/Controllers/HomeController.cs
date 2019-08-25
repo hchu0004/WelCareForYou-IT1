@@ -13,6 +13,16 @@ namespace WelCareForYou_IT1.Controllers
             return View();
         }
 
+        public ActionResult Housing()
+        {
+            return View();
+        }
+
+        public ActionResult HousingResult()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
