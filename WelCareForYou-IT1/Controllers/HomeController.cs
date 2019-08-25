@@ -26,5 +26,11 @@ namespace WelCareForYou_IT1.Controllers
 
             return View();
         }
+
+        protected override void HandleUnknownAction(string actionName)
+        {
+            Response.Redirect("~/Home/Index");
+            base.HandleUnknownAction(actionName);
+        }
     }
 }
