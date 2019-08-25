@@ -1,5 +1,6 @@
-﻿@{
-	ViewBag.Title = "Housing";
+﻿@model IEnumerable<WelCareForYou_IT1.Models.House>
+@{
+	ViewBag.Title = "HousingResult";
 }
 
 <p></p>
@@ -34,79 +35,48 @@
 </head>
 <body>
 
-	<div class="container">
-		<form action="https://app.99inbound.com/e/123" method="POST" target="_blank">
+	<section class="ftco-section">
+		<div class="row justify-content-center mb-5 pb-5">
 			<div class="col-md-10 heading-section text-center ftco-animate">
-				<p>
-
-				</p>
+				<h2 class="mb-4">Search Result</h2>
+			</div>
 			</div>
 
-			<h3 style="text-align: center;">We Provide Cheaper Renting Options for You</h3>
 
-			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text bg-white">
-							<i class="fa fa-paper-plane"></i>&nbsp
-						</span>
-					</div>
-					<input name="age" type="number" placeholder="Your Age" class="form-control border-left-0" required>
-				</div>
-			</div>
 
-			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text bg-white">
-							<i class="fa fa-user-circle"></i>
-						</span>
-					</div>
-					<input name="Gender" type="text" placeholder="Your Gender" class="form-control border-left-0" required>
-				</div>
-			</div>
+		@foreach (var item in Model)
+		{
 
-			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text bg-white">
-							<i class="fa fa-bank"></i>
-						</span>
-					</div>
-					<input name="Salary" type="number" placeholder="Your Salary (per week)" class="form-control border-left-0" required>
-				</div>
-			</div>
 
-			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text bg-white">
-							<i class="fa fa-users"></i>
-						</span>
+			<div class="col-md-4 d-flex ftco-animate">
+				<div class="blog-entry justify-content-end">
+					<div class="text">
+						<h3 class="heading">@Html.DisplayFor(modelItem => item.SuburbSuburbName)</h3>
 					</div>
-					<input name="Family" type="number" placeholder="Your Number of Family Members" class="form-control border-left-0" required>
-				</div>
-			</div>
 
-			<div class="form-group">
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text bg-white">
-							<i class="fa fa-home"></i>
-						</span>
+					<div class="text mt-3 float-right d-block">
+						<p>...</p>
+						<div class="d-flex align-items-center mt-4 meta">
+							<p class="mb-0"><a href="https://www.google.com/maps" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+							<p class="ml-auto mb-0">
+								<a href="#" class="mr-2"></a>
+
+								<a href="#" class="meta-chat"><span class="icon-chat">@Html.DisplayFor(modelItem => item.MediumPrice)</span></a>
+								<a href="#" class="meta-chat"><span class="icon-chat">@Html.DisplayFor(modelItem => item.NumOfRoom)</span></a>
+							</p>
+						</div>
 					</div>
-					<input name="Suburb" type="number" placeholder="Your current suburb" class="form-control border-left-0" required>
 				</div>
 			</div>
 
 
-			<button type="submit" class="btn btn-primary float-right" value="Register">
-				<i class="fa fa-paper-plane"></i>
-				Request the search
-			</button>
-		</form>
-	</div>
+		}
 
+
+
+
+
+	</section>
 
 	<script src="~/Content/js/jquery.min.js"></script>
 	<script src="~/Content/js/jquery-migrate-3.0.1.min.js"></script>
