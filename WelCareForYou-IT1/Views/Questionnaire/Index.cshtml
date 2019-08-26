@@ -34,7 +34,22 @@
 	<link rel="stylesheet" href="~/Content/css/style.css">
 </head>
 <body>
+	<section class="hero-wrap js-fullheight" style="background-image: url('../Content/images/house.jpg');" data-section="home">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+				<div class="col-md-6 ftco-animate" data-scrollax=" properties: { translateY: '30%' }">
+					<h1 class="mb-4" data-scrollax="properties: { translateY: '10%', opacity: 1.6 }">We Provide Cheaper Renting Options for You</h1>
+					<p class="mb-4" data-scrollax="properties: { translateY: '10%', opacity: 1.6 }"> Based on analysis,families or individuals spending more than 30% of their income on rent do face the possibility of being homeless  </p>
+					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
 	@using (Html.BeginForm("Result", "Questionnaire", FormMethod.Post))
 	{
 		@Html.AntiForgeryToken()
@@ -46,67 +61,93 @@
 					</p>
 				</div>
 
-				<h3 style="text-align: center;">We Provide Cheaper Renting Options for You</h3>
-
-
 				<div class="form-group">
-					@Html.LabelFor(model => model.AgeGroup, htmlAttributes: new { @class = "control-label col-md-2" })
 					<div class="col-md-10">
-						@Html.EditorFor(model => model.AgeGroup, new { htmlAttributes = new { @class = "form-control" } })
-						@Html.ValidationMessageFor(model => model.AgeGroup, "", new { @class = "text-danger" })
+						<div class="input-group-prepend">
+							<span class="input-group-text bg-white">
+								<i class="fa fa-paw"></i>
+							</span>
+
+							@Html.EditorFor(model => model.AgeGroup, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter your age" } })
+							@Html.ValidationMessageFor(model => model.AgeGroup, "", new { @class = "text-danger" })
+						</div>
+						</div>
 					</div>
-				</div>
 
-
+	
 				<div class="form-group">
-					@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+
 					<div class="col-md-10">
-						@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-						@Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
-					</div>
-				</div>
-
-				<div class="form-group">
-					@Html.LabelFor(model => model.NumOfRoom, htmlAttributes: new { @class = "control-label col-md-2" })
-					<div class="col-md-10">
-						@Html.EditorFor(model => model.NumOfRoom, new { htmlAttributes = new { @class = "form-control" } })
-						@Html.ValidationMessageFor(model => model.NumOfRoom, "", new { @class = "text-danger" })
-					</div>
-				</div>
-
-				<div class="form-group">
-					@Html.LabelFor(model => model.SuburbSuburbName, htmlAttributes: new { @class = "control-label col-md-2" })
-					<div class="col-md-10">
-						@Html.EditorFor(model => model.SuburbSuburbName, new { htmlAttributes = new { @class = "form-control" } })
-						@Html.ValidationMessageFor(model => model.SuburbSuburbName, "", new { @class = "text-danger" })
-					</div>
-				</div>
-
-				<div class="form-group">
-					@Html.LabelFor(model => model.Salary, htmlAttributes: new { @class = "control-label col-md-2" })
-					<div class="col-md-10">
-						@Html.EditorFor(model => model.Salary, new { htmlAttributes = new { @class = "form-control" } })
-						@Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
-					</div>
-				</div>
-
-				<div class="form-group">
-					<div class="column">
-						<p>Rent</p>
-						<h:outputLabel value="Rent" />
-						<div class="col-md-10">
-							<input type="text" id="rent" class="form-control" placeholder="rent" required="required" name="rent">
-							<p class="help-block text-danger"></p>
+						<div class="input-group-prepend">
+							<span class="input-group-text bg-white">
+								<i class="fa fa-user-circle"></i>
+							</span>
+							@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter your gender" } })
+							@Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
 						</div>
 					</div>
 				</div>
 
 
-					<button type="submit" class="btn btn-primary float-right" value="Result">
-						<i class="fa fa-paper-plane"></i>
-						Request the search
-					</button>
-</form>
+				<div class="form-group">
+
+					<div class="col-md-10">
+						<div class="input-group-prepend">
+							<span class="input-group-text bg-white">
+								<i class="fa fa-home"></i>
+							</span>
+							@Html.EditorFor(model => model.NumOfRoom, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter number of rooms you need" } })
+							@Html.ValidationMessageFor(model => model.NumOfRoom, "", new { @class = "text-danger" })
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					
+					<div class="col-md-10">
+						<div class="input-group-prepend">
+							<span class="input-group-text bg-white">
+								<i class="fa fa-map-marker"></i>
+							</span>
+							@Html.EditorFor(model => model.SuburbSuburbName, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter your current living suburb" } })
+							@Html.ValidationMessageFor(model => model.SuburbSuburbName, "", new { @class = "text-danger" })
+						</div>
+					</div>
+					</div>
+
+				<div class="form-group">
+					
+					<div class="col-md-10">
+						<div class="input-group-prepend">
+							<span class="input-group-text bg-white">
+								<i class="fa fa-bank"></i>
+							</span>
+							@Html.EditorFor(model => model.Salary, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter your current salary (per week)" } })
+							@Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
+						</div>
+					</div>
+					</div>
+
+				<div class="form-group">
+					<div class="col-md-10">
+						<div class="input-group-prepend">
+							<span class="input-group-text bg-white">
+								<i class="fa fa-paper-plane"></i>
+							</span>
+							
+								<input type="text" id="rent" class="form-control" placeholder="Please enter your current rent (per week)" required="required" name="rent">
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+					</div>
+
+
+				<button type="submit" class="btn btn-primary float-md-left" value="Result">
+					<i class="fa fa-paper-plane"></i>
+					Get your rent options! 
+				</button>
+				<p>                    </p>
+			</form>
 		</div>
 
 	}
