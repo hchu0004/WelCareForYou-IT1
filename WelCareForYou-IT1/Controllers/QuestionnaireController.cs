@@ -16,6 +16,39 @@ namespace WelCareForYou_IT1.Controllers
         // GET: Questionnaire
         public ActionResult Index()
         {
+            List<SelectListItem> ageGroupList = new List<SelectListItem>();
+            ageGroupList.AddRange(new[]
+            {
+                new SelectListItem() {Text = "50-55", Value = "50-55", Selected = false},
+                new SelectListItem() {Text = "56-60", Value = "56-60", Selected = false},
+                new SelectListItem() {Text = "61-65", Value = "61-65", Selected = false},
+                new SelectListItem() {Text = "66-70", Value = "66-70", Selected = false},
+                new SelectListItem() {Text = "71-75", Value = "71-75", Selected = false},
+                new SelectListItem() {Text = "75 +", Value = "75 +", Selected = false}
+            });
+            ViewData["AgeGroup"] = ageGroupList;
+
+            List<SelectListItem> genderList = new List<SelectListItem>();
+            genderList.AddRange(new[]
+            {
+                new SelectListItem() {Text = "Male", Value = "Male", Selected = false},
+                new SelectListItem() {Text = "Female", Value = "Female", Selected = false},
+                new SelectListItem() {Text = "Not specify", Value = "Not specify", Selected = false}
+            });
+            ViewData["Gender"] = genderList;
+
+            List<SelectListItem> numOfRoomList = new List<SelectListItem>();
+            numOfRoomList.AddRange(new[]
+            {
+                new SelectListItem() {Text = "1", Value = "1", Selected = false},
+                new SelectListItem() {Text = "2", Value = "2", Selected = false},
+                new SelectListItem() {Text = "3", Value = "3", Selected = false},
+                new SelectListItem() {Text = "4", Value = "4", Selected = false}
+            });
+            ViewData["NumOfRoom"] = numOfRoomList;
+
+            ViewData["SuburbName"] = new SelectList(db.Suburbs, "SuburbName", "SuburbName");
+            
             return View();
         }
 
@@ -30,15 +63,17 @@ namespace WelCareForYou_IT1.Controllers
                 db.SaveChanges();
             }
 
-            var NumOfRoom = client.NumOfRoom;
+            var numOfRoom = client.NumOfRoom;
             var currentRent = int.Parse(rent);
             var acceptableRent = client.Salary * 0.3;
+            var areaName = db.Suburbs.Where(x => x.SuburbName == client.SuburbSuburbName).Select(x => x.AreaName);
 
             if (currentRent > acceptableRent)
             {
                 List<House> housingList = db.Houses.Where(x => x.MediumPrice <= acceptableRent)
-                                                .Where(x => x.NumOfRoom >= NumOfRoom)
+                                                .Where(x => x.NumOfRoom >= numOfRoom)
                                                 .OrderByDescending(x => x.MediumPrice).Take(6).ToList();
+                
 
                 List<int> diffList = new List<int>();
                 var item1diff = housingList[0].MediumPrice * 100 / currentRent - 100;
