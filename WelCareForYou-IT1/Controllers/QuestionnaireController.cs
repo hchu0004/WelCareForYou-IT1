@@ -48,7 +48,7 @@ namespace WelCareForYou_IT1.Controllers
             ViewData["NumOfRoom"] = numOfRoomList;
 
             ViewData["SuburbName"] = new SelectList(db.Suburbs, "SuburbName", "SuburbName");
-            
+
             return View();
         }
 
@@ -57,6 +57,7 @@ namespace WelCareForYou_IT1.Controllers
         //public ActionResult Result(String salary, String numOfPeople1, String currentRent1)
         public ActionResult Result([Bind(Include = "Id,AgeGroup,Gender,NumOfRoom,Salary,SuburbSuburbName")] Client client, String rent)
         {
+
             if (ModelState.IsValid)
             {
                 db.Clients.Add(client);
@@ -66,15 +67,37 @@ namespace WelCareForYou_IT1.Controllers
             var numOfRoom = client.NumOfRoom;
             var currentRent = int.Parse(rent);
             var acceptableRent = client.Salary * 0.3;
-            var areaName = db.Suburbs.Where(x => x.SuburbName == client.SuburbSuburbName).Select(x => x.AreaName);
+
+            List<Suburb> selectedSuburb = db.Suburbs.Where(x => x.SuburbName == client.SuburbSuburbName).ToList();
+            var areaName = selectedSuburb[0].AreaName;
+            var availableSuburb = db.Suburbs.Where(x => x.AreaName == areaName).Select(x => x.SuburbName).ToList();
 
             if (currentRent > acceptableRent)
             {
-                List<House> housingList = db.Houses.Where(x => x.MediumPrice <= acceptableRent)
-                                                .Where(x => x.NumOfRoom >= numOfRoom)
-                                                .OrderByDescending(x => x.MediumPrice).Take(6).ToList();
-                
 
+                List<House> housingList = db.Houses.Where(x => availableSuburb.Contains(x.SuburbSuburbName)).Where(x => x.MediumPrice <= acceptableRent)
+                                                .Where(x => x.NumOfRoom >= numOfRoom)
+                                                .OrderByDescending(x => x.MediumPrice).Take(8).ToList();
+
+                if (housingList.Count() == 0)
+                {
+                    housingList = db.Houses.Where(x => x.MediumPrice <= acceptableRent)
+                                                .Where(x => x.NumOfRoom >= numOfRoom)
+                                                .OrderByDescending(x => x.MediumPrice).Take(8).ToList();
+                }
+
+
+                if (housingList.Count() == 0)
+                {
+                    ViewBag.ResultTitle = "Sorry! There is no option for you.";
+                }
+
+                List<House> housingList1 = db.Houses.Where(x => x.MediumPrice <= acceptableRent)
+                                                .Where(x => x.NumOfRoom >= numOfRoom)
+                                                .OrderByDescending(x => x.MediumPrice).Take(8).ToList();
+
+
+                /*
                 List<int> diffList = new List<int>();
                 var item1diff = housingList[0].MediumPrice * 100 / currentRent - 100;
                 var item2diff = housingList[1].MediumPrice * 100 / currentRent - 100;
@@ -89,6 +112,7 @@ namespace WelCareForYou_IT1.Controllers
                 diffList.Add(item5diff);
                 diffList.Add(item6diff);
                 ViewData["diff"] = diffList;
+                */
 
                 //return Redirect("~/Questionnaire/Index");
 
@@ -97,8 +121,29 @@ namespace WelCareForYou_IT1.Controllers
             else
             {
                 //chnage to another website           
-                return Redirect("~/Home/Index");
+                //return Redirect("~/Home/Contact");
+                List<House> housingList = db.Houses.Where(x => availableSuburb.Contains(x.SuburbSuburbName)).Where(x => x.MediumPrice <= acceptableRent)
+                                                .Where(x => x.NumOfRoom >= numOfRoom)
+                                                .OrderByDescending(x => x.MediumPrice).Take(8).ToList();
+
+                ViewBag.ResultTitle = "Great! You are not at homelessness risk.";
+
+                return View(housingList);
             }
+        }
+
+        public bool IsNumeric(String input)
+        {
+            bool isNumeric = true;
+            foreach (char c in input)
+            {
+                if (!Char.IsNumber(c))
+                {
+                    isNumeric = false;
+                    break;
+                }
+            }
+            return isNumeric;
         }
 
         protected override void HandleUnknownAction(string actionName)

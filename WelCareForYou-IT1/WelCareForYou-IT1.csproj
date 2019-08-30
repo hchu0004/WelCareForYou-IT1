@@ -188,9 +188,6 @@
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\aos.css" />
     <Content Include="Content\css\bootstrap-datepicker.css" />
-    <Content Include="Content\css\bootstrap-theme.css" />
-    <Content Include="Content\css\bootstrap-theme.min.css" />
-    <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\flaticon.css" />
     <Content Include="Content\css\icomoon.css" />
@@ -200,8 +197,8 @@
     <Content Include="Content\css\open-iconic-bootstrap.min.css" />
     <Content Include="Content\css\owl.carousel.min.css" />
     <Content Include="Content\css\owl.theme.default.min.css" />
-    <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\StyleSheet1.css" />
     <Content Include="Content\fonts\flaticon\backup.txt" />
     <Content Include="Content\fonts\flaticon\font\flaticon.css" />
     <Content Include="Content\fonts\flaticon\font\flaticon.html" />
@@ -211,8 +208,12 @@
     <Content Include="Content\fonts\ionicons\css\ionicons.min.css" />
     <Content Include="Content\fonts\ionicons\fonts\ionicons.svg" />
     <Content Include="Content\fonts\open-iconic\open-iconic.svg" />
+    <Content Include="Content\images\bg_1.jpg" />
+    <Content Include="Content\images\family.png" />
+    <Content Include="Content\images\family2.png" />
     <Content Include="Content\images\homepage.jpg" />
     <Content Include="Content\images\house.jpg" />
+    <Content Include="Content\images\house2.png" />
     <Content Include="Content\images\Housing.jpg" />
     <Content Include="Content\images\image_1.jpg" />
     <Content Include="Content\images\image_2.jpg" />
@@ -234,6 +235,7 @@
     <Content Include="Content\js\main.js" />
     <Content Include="Content\js\owl.carousel.min.js" />
     <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\scroll-down.js" />
     <Content Include="Content\js\scrollax.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -261,10 +263,6 @@
     <Content Include="Models\BusinessModel.edmx.diagram">
       <DependentUpon>BusinessModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Content\css\bootstrap-theme.css.map" />
-    <Content Include="Content\css\bootstrap-theme.min.css.map" />
-    <Content Include="Content\css\bootstrap.css.map" />
-    <Content Include="Content\css\bootstrap.min.css.map" />
     <Content Include="Content\fonts\.DS_Store" />
     <Content Include="Content\fonts\flaticon\.DS_Store" />
     <Content Include="Content\fonts\flaticon\font\.DS_Store" />
@@ -314,6 +312,7 @@
     <Content Include="Views\Questionnaire\Index.cshtml" />
     <Content Include="Views\Questionnaire\Result.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Undeveloped.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

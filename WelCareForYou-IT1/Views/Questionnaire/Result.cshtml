@@ -35,63 +35,147 @@
 
 </head>
 <body>
+	
+	<<section class="hero-wrap js-fullheight" style="background-image: url('../Content/images/house.jpg');">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+			<div class="col-md-6 ftco-animate" data-scrollax=" properties: { translateY: '30%' }">
+				<h1 class="mb-4" data-scrollax="properties: { translateY: '10%', opacity: 1.6 }">Scroll down to view your cheaper renting options!</h1>
+				<p class="mb-4" data-scrollax="properties: { translateY: '10%', opacity: 1.6 }">
+					Based on analysis,families or individuals spending more than 30% of their income on rent do face the possibility of being homeless.
+					The website will provide the region whose average price is lower than 30% of your income and your current rent.
+				</p>
+				<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 
-	<section class="ftco-section">
+					<a href="#section1">
+						<span></span> <img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png">
+						<p> Scroll</p>
+					</a>
 
-		<div class="row justify-content-center mb-5 pb-5">
-			<div class="col-md-10 heading-section text-center ftco-animate">
-				<h2 class="mb-4">Search Result</h2>
+				</div>
 			</div>
 		</div>
-		<div class="row d-flex"> @*make sure the result are in rows*@
+	</div>
+</section>
+  
+
+
+	<section class="ftco-section bg-light" id="section1">
+
+		<div class="row justify-content-center pb-5">
+			<h2 class="mb-4">Your better options based on our analysis.</h2>
+		</div>
+		<div class="row">
 			@foreach (var item in Model)
 			{
+				<div class="col-md-6 col-lg-3 ftco-animate">
 
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="justify-content-end">
-						<div class="text">
-							<h2 class="heading">@Html.DisplayFor(modelItem => item.SuburbSuburbName)</h2>
-						</div>
+					<div class="text d-flex align-items-center pt-3 text-center" border:3px solid #000>
+						<div>
+							<h3 class="mb-2"> @Html.DisplayFor(modelItem => item.SuburbSuburbName)<a href="https://www.google.com/maps/place/@Html.DisplayFor(modelItem => item.SuburbSuburbName)" /></h3>
+							<p>
 
-						<div class="text mt-3 float-right d-block">
-
-							<div class="d-flex align-items-center mt-4 meta">
-								<p class="mb-0"><a href="https://www.google.com/maps" class="btn btn-primary">Map <span class="icon-map"></span></a>
-								</p>
-								<p class="ml-auto mb-0">
-
-								
-									<span class="icon-money">@Html.DisplayFor(modelItem => item.MediumPrice)</span>
-
-									<span class="icon-room">@Html.DisplayFor(modelItem => item.NumOfRoom)</span>
-                                </p>
+							</p>
+							<a>Average Price </a>
+							<a><span class="icon-money"> @Html.DisplayFor(modelItem => item.MediumPrice)</span></a>
+							<div>
+								<a>Number of Room </a>
+								<span class="icon-bed"> @Html.DisplayFor(modelItem => item.NumOfRoom)</span>
 							</div>
+							<div>
+								<a>House Type </a>
+								<span class="icon-building"> @Html.DisplayFor(modelItem => item.HouseType)</span>
+							</div>
+							<div>
+								<a href="https://www.google.com/maps/place/@Html.DisplayFor(modelItem => item.SuburbSuburbName)">Map <span class="icon-map-signs"></span></a>
+
+							</div>
+
+						</div>
+						<div>
+
 						</div>
 					</div>
 				</div>
-
-
 			}
 
 		</div>
+
 	</section>
 
-		<script src="~/Content/js/jquery.min.js"></script>
-		<script src="~/Content/js/jquery-migrate-3.0.1.min.js"></script>
-		<script src="~/Content/js/popper.min.js"></script>
-		<script src="~/Content/js/bootstrap.min.js"></script>
-		<script src="~/Content/js/jquery.easing.1.3.js"></script>
-		<script src="~/Content/js/jquery.waypoints.min.js"></script>
-		<script src="~/Content/js/jquery.stellar.min.js"></script>
-		<script src="~/Content/js/owl.carousel.min.js"></script>
-		<script src="~/Content/js/jquery.magnific-popup.min.js"></script>
-		<script src="~/Content/js/aos.js"></script>
-		<script src="~/Content/js/jquery.animateNumber.min.js"></script>
-		<script src="~/Content/js/bootstrap-datepicker.js"></script>
-		<script src="~/Content/js/jquery.timepicker.min.js"></script>
-		<script src="~/Content/js/scrollax.min.js"></script>
 
-		<script src="~/Content/js/main.js"></script>
+	<footer class="ftco-footer ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">About <span>WelCareForYou</span></h2>
+						<p>  </p>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">Links</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
+							\
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Have a Questions?</h2>
+						<div class="block-23 mb-0">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span class="text">Address Monash University</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span class="text">Phone number 0421855208</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope"></span><span class="text">Email 2498856314@qq.com</span></a></li>
+							</ul>
+						</div>
+						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-4">
+							<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					<p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<script src="~/Content/js/jquery.min.js"></script>
+	<script src="~/Content/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="~/Content/js/popper.min.js"></script>
+	<script src="~/Content/js/bootstrap.min.js"></script>
+	<script src="~/Content/js/jquery.easing.1.3.js"></script>
+	<script src="~/Content/js/jquery.waypoints.min.js"></script>
+	<script src="~/Content/js/jquery.stellar.min.js"></script>
+	<script src="~/Content/js/owl.carousel.min.js"></script>
+	<script src="~/Content/js/jquery.magnific-popup.min.js"></script>
+	<script src="~/Content/js/aos.js"></script>
+	<script src="~/Content/js/jquery.animateNumber.min.js"></script>
+	<script src="~/Content/js/bootstrap-datepicker.js"></script>
+	<script src="~/Content/js/jquery.timepicker.min.js"></script>
+	<script src="~/Content/js/scrollax.min.js"></script>
+
+	<script src="~/Content/js/main.js"></script>
 
 </body>
 </html>

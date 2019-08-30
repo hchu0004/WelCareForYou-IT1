@@ -3,45 +3,30 @@
 	ViewBag.Title = "Housing";
 }
 
-<p></p>
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
-	<title>WelCareForYou -- Get More renting options</title>
 	<link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
-
-	<link rel="stylesheet" href="~/Content/css/open-iconic-bootstrap.min.css">
-	<link rel="stylesheet" href="~/Content/css/animate.css">
-
-	<link rel="stylesheet" href="~/Content/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="~/Content/css/magnific-popup.css">
-
-	<link rel="stylesheet" href="~/Content/css/aos.css">
-
-	<link rel="stylesheet" href="~/Content/css/ionicons.min.css">
-
-	<link rel="stylesheet" href="~/Content/css/bootstrap-datepicker.css">
-	<link rel="stylesheet" href="~/Content/css/jquery.timepicker.css">
-
-	<link rel="stylesheet" href="~/Content/css/flaticon.css">
-	<link rel="stylesheet" href="~/Content/css/icomoon.css">
-	<link rel="stylesheet" href="~/Content/css/style.css">
 </head>
+
 <body>
-	<section class="hero-wrap js-fullheight" style="background-image: url('../Content/images/house.jpg');" data-section="home">
+	<section class="hero-wrap js-fullheight" style="background-image: url('../Content/images/house2.png');">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
 				<div class="col-md-6 ftco-animate" data-scrollax=" properties: { translateY: '30%' }">
 					<h1 class="mb-4" data-scrollax="properties: { translateY: '10%', opacity: 1.6 }">We Provide Cheaper Renting Options for You</h1>
-					<p class="mb-4" data-scrollax="properties: { translateY: '10%', opacity: 1.6 }"> Based on analysis,families or individuals spending more than 30% of their income on rent do face the possibility of being homeless  </p>
+					<p class="mb-4" data-scrollax="properties: { translateY: '10%', opacity: 1.6 }">
+						Based on analysis,families or individuals spending more than 30% of their income on rent do face the possibility of being homeless.
+						The website will provide the region whose average price is lower than 30% of your income and your current rent.
+					</p>
 					<div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+
+						<a href="#section1">
+							<span></span> <img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png">
+							<p> Questionnaire</p>
+						</a>
 
 					</div>
 				</div>
@@ -49,112 +34,182 @@
 		</div>
 	</section>
 
-	
-	@using (Html.BeginForm("Result", "Questionnaire", FormMethod.Post))
-	{
-		@Html.AntiForgeryToken()
+	<section class="js-fullheight" id="section1">
 		<div class="container">
-			<form action="https://app.99inbound.com/e/123" method="POST" target="_blank">
-				<div class="col-md-10 heading-section text-center ftco-animate">
-					<p>
+			@using (Html.BeginForm("Result", "Questionnaire", FormMethod.Post))
+			{
+				@Html.AntiForgeryToken()
 
-					</p>
-				</div>
 
-				<div class="form-group">
-					<div class="col-md-10">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-white">
-                                <i class="fa fa-paw"></i>
-                            </span>
+				<form action="https://app.99inbound.com/e/123" method="POST" target="_blank">
+					<div class="col-md-10 heading-section text-center ftco-animate">
+						<h3 class="mb-4">Please fill in the form for us to provide more affordable options for you</h3>
 
-                            @Html.DropDownList("AgeGroup", ViewData["AgeGroup"] as SelectList, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.AgeGroup, "", new { @class = "text-danger" })
-                        </div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-10">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-white">
+									<i class="fa fa-calculator"></i>
+								</span>
+
+								@Html.DropDownList("AgeGroup", ViewData["AgeGroup"] as SelectList, "Please select your age group ",
+
+							   htmlAttributes: new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.AgeGroup, "", new { @class = "text-danger" })
+							</div>
 						</div>
 					</div>
 
-	
-				<div class="form-group">
 
-					<div class="col-md-10">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-white">
-                                <i class="fa fa-user-circle"></i>
-                            </span>
-                            @Html.DropDownList("Gender", ViewData["Gender"] as SelectList, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
-                        </div>
-					</div>
-				</div>
+					<div class="form-group">
 
-
-				<div class="form-group">
-
-					<div class="col-md-10">
-                        <div>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text bg-white">
-                                    <i class="fa fa-home"></i>
-                                </span>
-
-                                @Html.DropDownList("NumOfRoom", ViewData["NumOfRoom"] as SelectList, htmlAttributes: new { @class = "form-control", placeholder = "Please enter number of rooms you need"})
-                                @Html.ValidationMessageFor(model => model.NumOfRoom, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-					</div>
-				</div>
-
-				<div class="form-group">
-					
-					<div class="col-md-10">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-white">
-                                <i class="fa fa-map-marker"></i>
-                            </span>
-                            @Html.DropDownList("SuburbSuburbName", ViewData["SuburbName"] as SelectList, htmlAttributes: new { @class = "form-control" })
-                            
-                            @Html.ValidationMessageFor(model => model.SuburbSuburbName, "", new { @class = "text-danger" })
-                        </div>
-					</div>
-					</div>
-
-				<div class="form-group">
-					
-					<div class="col-md-10">
-						<div class="input-group-prepend">
-							<span class="input-group-text bg-white">
-								<i class="fa fa-bank"></i>
-							</span>
-							@Html.EditorFor(model => model.Salary, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter your current salary (per week)" } })
-							@Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
+						<div class="col-md-10">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-white">
+									<i class="fa fa-user-circle"></i>
+								</span>
+								@Html.DropDownList("Gender", ViewData["Gender"] as SelectList, "Please select your gender ", htmlAttributes: new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+							</div>
 						</div>
 					</div>
+					<div class="form-group">
+
+						<div class="col-md-10">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-white">
+									<i class="fa fa-map-marker"></i>
+								</span>
+								@Html.DropDownList("SuburbSuburbName", ViewData["SuburbName"] as SelectList, "Please select your current living surbub ", htmlAttributes: new { @class = "form-control" })
+
+								@Html.ValidationMessageFor(model => model.SuburbSuburbName, "", new { @class = "text-danger" })
+							</div>
+							<label>Based on the suburb you choose, we will show rent in your same inner suburb</label>
+						</div>
 					</div>
 
-				<div class="form-group">
-					<div class="col-md-10">
-						<div class="input-group-prepend">
-							<span class="input-group-text bg-white">
-								<i class="fa fa-paper-plane"></i>
-							</span>
-							
+
+					<div class="form-group">
+
+						<div class="col-md-10">
+							<div>
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-white">
+										<i class="fa fa-home"></i>
+									</span>
+
+									@Html.DropDownList("NumOfRoom", ViewData["NumOfRoom"] as SelectList, "Please select the number of rooms you need ", htmlAttributes: new { @class = "form-control", placeholder = "Please enter number of rooms you need" })
+									@Html.ValidationMessageFor(model => model.NumOfRoom, "", new { @class = "text-danger" })
+
+								</div>
+								<label>Room number is under 4 :) </label>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+
+						<div class="col-md-10">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-white">
+									<i class="fa fa-bank"></i>
+								</span>
+								@Html.EditorFor(model => model.Salary, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter your household salary (per week)" } })
+								@Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-10">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-white">
+									<i class="fa fa-dollar"></i>
+								</span>
+
 								<input type="text" id="rent" class="form-control" placeholder="Please enter your current rent (per week)" required="required" name="rent">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 					</div>
 
+					<div class="form-group">
+						<div class="col-md-10">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-white">
+									<i class="fa fa-paper-plane"></i>
+								</span>
+								<input type="submit" value="Get more options !" class="btn btn-primary ">
+							</div>
+						</div>
+					</div>
 
-				<button type="submit" class="btn btn-primary float-md-left" value="Result">
-					<i class="fa fa-paper-plane"></i>
-					Get your rent options! 
-				</button>
-				<p>                    </p>
-			</form>
+				</form>
+
+
+			}
 		</div>
 
-	}
+	</section>
+
+
+	<footer class="ftco-footer ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">About <span>WelCareForYou</span></h2>
+						<p>  </p>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">Links</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Have a Question?</h2>
+						<div class="block-23 mb-0">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span class="text">Address: Monash University</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span class="text">Phone number: 0421855208</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope"></span><span class="text">Email:2498856314@qq.com</span></a></li>
+							</ul>
+						</div>
+						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-4">
+							<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					<p>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+
 
 
 	<script src="~/Content/js/jquery.min.js"></script>
@@ -173,6 +228,7 @@
 	<script src="~/Content/js/scrollax.min.js"></script>
 
 	<script src="~/Content/js/main.js"></script>
+
 
 </body>
 </html>

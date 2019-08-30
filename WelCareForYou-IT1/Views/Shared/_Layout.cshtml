@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - WelCareForYou</title>
+	<title>WelCareForYou</title>
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/modernizr")
 	<meta charset="utf-8">
@@ -34,7 +34,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand">WelCareForYou</a>
+			<a class="navbar-brand" href="~/Home/Index">WelCareForYou</a>
 			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
@@ -42,24 +42,86 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav nav ml-auto">
 					<li class="nav-item"><a href="~/Home/index" class="nav-link"><span>Home</span></a></li>
-					<li class="nav-item"><a href="~/Home/index" class="nav-link"><span>Contact Us</span></a></li>
+					<li class="nav-item"><a href="#section1" class="nav-link"><span>Problem</span></a></li>
+					@*<li class="nav-item"><a href="#section2" class="nav-link"><span>Contact Us</span></a></li>*@
 					<li class="nav-item"><a href="~/Questionnaire/Index" class="nav-link"><span>Help with your Renting</span></a></li>
+
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	
-	<div class="container body-content">
+
+
+
+	<div>
 		@RenderBody()
 		<hr />
+
+		@*
 		<footer>
 			<p>&copy; @DateTime.Now.Year - </p>
 		</footer>
-	</div>
+		*@
+		@*
+		<footer class="ftco-footer ftco-section">
+			<div class="container">
+				<div class="row mb-5">
+					<div class="col-md">
+						<div class="ftco-footer-widget mb-4">
+							<h2 class="ftco-heading-2">About <span>WelCareForYou</span></h2>
+							<p> Team description </p>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="ftco-footer-widget mb-4 ml-md-4">
+							<h2 class="ftco-heading-2">Links</h2>
+							<ul class="list-unstyled">
+								<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+								<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
+								\
+								<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+							</ul>
+						</div>
+					</div>
 
-	@Scripts.Render("~/bundles/jquery")
-	@Scripts.Render("~/bundles/bootstrap")
-	@RenderSection("scripts", required: false)
-</body>
-</html>
+					<div class="col-md">
+						<div class="ftco-footer-widget mb-4">
+							<h2 class="ftco-heading-2">Have a Questions?</h2>
+							<div class="block-23 mb-0">
+								<ul>
+									<li><span class="icon icon-map-marker"></span><span class="text">Address</span></li>
+									<li><a href="#"><span class="icon icon-phone"></span><span class="text">Phone number</span></a></li>
+									<li><a href="#"><span class="icon icon-envelope"></span><span class="text">Email</span></a></li>
+								</ul>
+							</div>
+							<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-4">
+								<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+								<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+								<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">
+
+						<p>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;
+							<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
+		*@
+	</div>
+			@Scripts.Render("~/bundles/jquery")
+			@Scripts.Render("~/bundles/bootstrap")
+			@RenderSection("scripts", required: false)
+		</body>
+		</html>
