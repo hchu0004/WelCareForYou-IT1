@@ -8652,6 +8652,7 @@ textarea.form-control {
   background: #3c312e; }
 
 .ftco-footer {
+height: 10%;
   font-size: 16px;
   background: #222831;
   padding: 7em 0;
@@ -8692,7 +8693,7 @@ textarea.form-control {
   margin: 0 10px 0 0;
   display: inline-block; }
   .ftco-footer-social li a {
-    height: 50px;
+    height: 20px;
     width: 50px;
     display: block;
     float: left;
@@ -8916,7 +8917,7 @@ textarea.form-control {
   z-index: 0; }
 
 .ftco-counter .ftco-counter-wrap {
-  margin-top: -100px;
+  margin-top: -50px;
   padding: 0; }
 
 @media (max-width: 1199.98px) {

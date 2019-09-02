@@ -33,7 +33,7 @@ namespace WelCareForYou_IT1.Controllers
             {
                 new SelectListItem() {Text = "Male", Value = "Male", Selected = false},
                 new SelectListItem() {Text = "Female", Value = "Female", Selected = false},
-                new SelectListItem() {Text = "Not specify", Value = "Not specify", Selected = false}
+                new SelectListItem() {Text = "Others", Value = "Others", Selected = false}
             });
             ViewData["Gender"] = genderList;
 
